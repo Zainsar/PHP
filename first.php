@@ -149,4 +149,70 @@ foreach($result as $value){
     foreach($value as $var)
     echo $var[0];
 }
+
+$result = [
+    ["Syed","Muhammad","Zain","Sarfraz"],
+    ["Syed","Muhammad","Sohaib","Sarfraz"],
+    ["Syed","Muhammad","Haziq","Zain"]
+];
+foreach($result as $val){
+foreach($val as $value){
+    echo "$value <br>";
+}
+}
+
+$Marks =[
+    "Maths" => "70",
+    "Urdu" => "80",
+    "English" => "90",
+    "Physics" => "60"
+];
+
+foreach($Marks as $key => $val){
+echo "$key : $val <br>";
+}
+
+// IF Statements
+
+$Age = 20;
+if($Age > 18){
+    echo " You Are Eligible";
+}
+elseif ($Age > 50) {
+    echo "Older person" ;
+} 
+else {
+    echo "Ja Bhai Nikal Yahan sy";
+}
+
+echo "<br>";
+
+// switch Statements
+
+$Weekday=6;
+switch($Weekday){
+    case 1:
+        echo "Monday";
+        break;
+    case 2:
+        echo "Tuesday";
+        break;
+    case 3:
+        echo "wednesday";
+        break;
+    case 4:
+        echo "Thursday";
+        break;
+    case 5:
+        echo "Friday";
+        break;
+    case 6:
+        echo "Saturday";
+        break;
+    case 7:
+        echo "Sunday";
+        break;
+        default:
+        echo "Aby Bawale 8 day tune banaya hai";
+}
 ?>
