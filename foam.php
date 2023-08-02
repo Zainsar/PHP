@@ -1,3 +1,7 @@
+<?php
+include('connection.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -56,8 +60,40 @@
     </form> -->
 
     <!-- Internal -->
+<!-- <div class="container-fluid" style="margin-top: 2px;">
+    <form action= method="post" class="form-group">
+        <label for="FirstName">FirstName</label>
+        <input type="text" name="FirstName" class="form-control" placeholder="First-Name">
+        <br>
+        <label for="LastName">LastName</label>
+        <input type="text" name="LastName" class="form-control" placeholder="Last-Name">
+        <br>
+        <label for="Email">Email</label>
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text">@</div>
+        </div>
+        <input type="Email" class="form-control" name="Email" placeholder="Email">
+      </div>
+    <br>
+       <label for="Email">Email</label>
+        <input type="Email" name="Email" class="form-control" placeholder="name@example.com">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        <br> 
+        <label for="Password">Password</label>
+        <input type="Password" name="Password" class="form-control" placeholder="********">
+        <br>
+        <label for="Age">Age</label>
+        <input type="number" name="Age" class="form-control" placeholder="18 Above">
+        <br>
+        <label for="Gender">Gender</label>
+        <input type="text" name="Gender" class="form-control" placeholder="Male/Female">
+        <br>
+        <input type="Submit" value="Submit" name="Submit" class="btn btn-primary">
+    </form>
+</div> -->
 <div class="container-fluid" style="margin-top: 2px;">
-    <form action=<?php echo $_SERVER['PHP_SELF'] ?> method="post" class="form-group">
+    <form action="foam.php" method="post" class="form-group">
         <label for="FirstName">FirstName</label>
         <input type="text" name="FirstName" class="form-control" placeholder="First-Name">
         <br>
@@ -90,12 +126,18 @@
 </div>
     <?php
     if (isset($_POST['Submit'])) {
-        echo $_POST['FirstName'] . "<br>";
-        echo $_POST['LastName'] . "<br>";
-        echo $_POST['Email'] . "<br>";
-        echo $_POST['Password'] . "<br>";
-        echo $_POST['Age'] . "<br>";
-        echo $_POST['Gender'] . "<br>";
+        $FirstName = $_POST['FirstName'];
+        $LastName = $_POST['LastName'];
+        $Email =$_POST['Email'];
+        $Password = $_POST['Password'];
+        $Age = $_POST['Age'];
+        $Gender = $_POST['Gender'];
+
+        $query ="INSERT INTO `userinfo` (`FirstName`, `LastName`, `Email`, `Password`, `Age`, `Gender`) VALUES ('$FirstName', '$LastName', '$Email', '$Password', '$Age', '$Gender')";
+        $result = mysqli_query($conn , $query);
+        if(!$result){
+            die("Query failed");
+        }
     }
     ?>
 </body>
