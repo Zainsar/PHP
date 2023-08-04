@@ -1,5 +1,5 @@
 <?php
-$conn = mysqli_connect("localhost","root","","zain");
+$conn = mysqli_connect("localhost","root","","zain2");
 if(!$conn){
     die("queryfailed");
 }
